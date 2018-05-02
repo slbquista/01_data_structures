@@ -10,9 +10,10 @@ import java.util.LinkedList;
 public class Client {
     
     private static Stock stock;
-    private static Queue orders;
+    private static Queue<Order> orders;
     
     public static void main(String[] args) {
+        
         
         //  Get Stock Instance
         stock = Stock.getInstance();
@@ -28,7 +29,27 @@ public class Client {
         order_1.add("Cereal");
         orders.add(order_1);
         
+        Order order_2 = new Order(2, "Different Name");
+        order_2.add("Lawn");
+        order_2.add("Lawnmower");
+        orders.add(order_2);
+        
+        Order order_3 = new Order(3, "Another Name");
+        order_3.add("Whisky");
+        order_3.add("Bread");
+        order_3.add("Cereal");
+        order_3.add("Lawn");
+        order_3.add("Lawnmower");
+        orders.add(order_3);
+        
+        Order order_4 = new Order(4, "Testing");
+        order_4.add("testing");
+        order_4.add("doesntexist");
+        orders.add(order_4);
+        
         //  Output All orders information
-        System.out.println(orders);
+        for (Order item : orders) {
+            System.out.println(item.toString());
+        }
     }
 }
